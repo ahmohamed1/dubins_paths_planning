@@ -1,6 +1,20 @@
 #include <iostream>
 
 
+struct Point2
+{
+    float x;
+    float y;
+
+    void set_point(float _x, float _y)
+    {
+        x = _x;
+        y = _y;
+    }
+    
+};
+
+
 class Circle{
 public:
     Circle() = default;
