@@ -10,12 +10,14 @@ Car::Car(float _x, float _y, float _heading, float _turning_radius)
     turning_radius = _turning_radius;
     right_circle = compute_adjacent_circle(1);
     left_circle = compute_adjacent_circle(-1);
+    point.set_point(x,y);
 }
 
 void Car::set_position(float _x, float _y)
 {
     x = x;
     y = _y;
+    point.set_point(x,y);
 }
 void Car::set_heading(float _heading)
 {
@@ -60,12 +62,16 @@ Cricle Car::get_left_cricle()
     return left_circle;
 }
 
+Point2 Car::get_point()
+{
+    return point;
+}
 
 Circle Car::compute_adjacent_circle(int side)
 {
     // Side sould be 1 for right cirlce or -1 for left
-    float xc = x + side* sin(heading + (M_PI / 2));
-    float yc = y + side* cos(heading + (M_PI / 2));
+    float xc = x + sin(heading + side* (M_PI / 2));
+    float yc = y + cos(heading + side* (M_PI / 2));
 
     return Circle(xc,yc, turning_radius);
 }

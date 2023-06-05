@@ -19,6 +19,7 @@ class Car
         float get_position_x();
         float get_position_y();
         float get_turning_radius();
+        Point2 get_point();
         Cricle get_right_cricle();
         Cricle get_left_cricle();
 
@@ -27,6 +28,8 @@ class Car
         float y;
         float heading;
         float turning_radius;
+
+        Point2 point;
 
         Circle right_circle;
         Circle left_circle;

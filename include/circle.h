@@ -5,6 +5,7 @@ struct Point2
 {
     float x;
     float y;
+    Point2(float _x = 0.0f, float _y = 0.0f) : x(_x), y(_y) {}
 
     void set_point(float _x, float _y)
     {
@@ -12,6 +13,26 @@ struct Point2
         y = _y;
     }
     
+    Point2 normalized() {
+        float magnitude = std::sqrt(x * x + y * y );
+        return Point2(x / magnitude, y / magnitude);
+    }
+
+    float magnitude()
+    {
+        return std::sqrt(x * x + y * y );
+    }
+
+     Point2 operator-(const Point2& other) const {
+        return Point2(x - other.x, y - other.y);
+    }
+    Point2 operator+(const Point2& other) const {
+        return Point2(x + other.x, y + other.y);
+    }
+
+    Point2 operator*(const float& other) const {
+        return Point2(x * other, y * other);
+    }
 };
 
 
